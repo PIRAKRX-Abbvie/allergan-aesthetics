@@ -1,0 +1,26 @@
+<ng-template #contentCopy>
+  There’s a lot of discussion in the industry about ‘overtreating’,
+  ‘overfilling’ or ‘unnatural results’, with media outlets seizing upon stories
+  of treatments going awry. Aesthetics should be regulated and safe for all
+  patients. Practitioners are focused on pulling the industry up by setting the
+  standard.
+</ng-template>
+
+<div #sectionContainer id="aesthetics" class="section-container">
+  <div class="content">
+    <section-content pageNum="7" prevSectionId="new-body-frontiers" nextSectionId="digital-lens">
+      <ng-container title><app-text-animate text="Aesth-ethics"></app-text-animate></ng-container>
+      <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+    </section-content>
+  </div>
+
+  <div class="model-container">
+    <div class="box-light"></div>
+    <div class="box-dark"></div>    
+    <img class="model" src="/assets/trends/model7.png"/>
+  </div>
+
+  <div class="content-mobile">
+    <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+  </div>
+</div>

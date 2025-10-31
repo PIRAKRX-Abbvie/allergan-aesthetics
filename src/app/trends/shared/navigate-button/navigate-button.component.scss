@@ -1,0 +1,14 @@
+@import "styles/variables";
+
+app-icon {
+    position: relative;
+    z-index: 5;
+    &.hidden {
+        visibility: hidden;
+    }
+}
+@media (max-width: breakpoint(sm, max)) {
+    :host {
+        display: none;
+    }
+}

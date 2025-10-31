@@ -1,0 +1,123 @@
+@import "styles/variables";
+
+.section-container {
+  @include section;
+
+  .content {    
+    @media (min-width: breakpoint(xl, min)) {
+      position: absolute;
+      top: 10%;
+      left: 20%;
+      max-width: 34%;
+    }
+    @media (min-width: breakpoint(lg, min)) and (max-width: breakpoint(lg, max)) {
+      position: absolute;
+      top: 10%;
+      left: 0;
+      max-width: 54%;
+    }
+    @media (min-width: breakpoint(md, min)) and (max-width: breakpoint(md, max)) {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      max-width: 69%;
+    }
+
+    @media (max-width: breakpoint(sm, max)) {
+      padding-top: 25px;
+    }
+  }
+  .content-mobile {
+    @include sectionContentMobile;
+  }
+
+  .model-container {
+    * {
+      z-index: 1;
+    }
+
+    @media (max-width: breakpoint(sm, max)) {
+      position: relative;
+    }
+    .model {
+      @include model;
+      
+      @media (min-width: breakpoint(lg, min)) {
+        position: absolute;
+        bottom: 0;
+        left: 36%;
+        max-width: 1450px;
+      }
+      @media (min-width: breakpoint(md, min)) and (max-width: breakpoint(md, max)) {
+        position: absolute;
+        max-height: 55%;
+        bottom: 0;
+        right: -33%;
+      }
+      @media (max-width: breakpoint(sm, max)) {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .box-dark {
+      @include boxDark;
+      
+      @media (min-width: breakpoint(lg, min)) {
+        position: absolute;
+        bottom: 0%;
+        right: 0;
+        width: 25%;
+        height: 90%;
+      }
+      @media (min-width: breakpoint(md, min)) and (max-width: breakpoint(md, max)) {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 25%;
+        height: 75%;
+      }
+      @media (max-width: breakpoint(sm, max)) {
+        position: absolute;
+        bottom: 0%;
+        left: 0;
+        width: 75%;
+        z-index: -1;
+        height: 80%;
+      }
+    }
+
+    .box-light {
+      @include boxLight;
+
+      @media (min-width: breakpoint(lg, min)) {
+        position: absolute;
+        top: 0%;
+        right: 0px;
+        width: 15%;
+        height: 45%;
+        transform: translateY(-75%);
+      }
+      @media (min-width: breakpoint(md, min)) and (max-width: breakpoint(md, max)) {
+        position: absolute;
+        bottom: 0;
+        left: 0px;
+        width: 15%;
+        height: 35%;
+        width: 50%;
+        transform: translateY(-75%);
+      }
+      @media (max-width: breakpoint(sm, max)) {}
+    }
+  }
+  &.shown {
+    .model-container {
+      .box-light {
+        transition-delay: 250ms;
+        transition: transform 7s;
+        transform: translateY(0);
+      }
+    }
+  }
+}

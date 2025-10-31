@@ -1,0 +1,9 @@
+@import 'styles/variables';
+
+:host {
+  display: flex;
+}
+
+app-btn .btn {
+  height: 100%;
+}

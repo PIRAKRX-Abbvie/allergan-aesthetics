@@ -1,0 +1,245 @@
+// https://scotch.io/tutorials/aesthetic-sass-2-colors
+$palette: (
+  primary: (
+    base: #492728,
+    light: #925c54,
+    dark: null
+  ),
+  secondary: (
+    base: null,
+    light: null,
+    dark: null
+  ),
+  accent: (
+    base: null,
+    light: null,
+    dark: null
+  ),
+  foreground: (
+    base: #212121,
+    light: #faf6f5,
+    lightest: #ffffff,
+    dark: null,
+    darker: null
+  ),
+  background: (
+    base: #f2d9d0,
+    light: #ffffff,
+    dark: null
+  ),
+  error: (
+    base: null
+  ),
+  success: (
+    base: null
+  ),
+  warning: (
+    base: #e34d4d
+  )
+);
+
+@function color($color, $tone: base) {
+  @if map-has-key($palette, $color) {
+    $color: map-get($palette, $color);
+
+    @if map-has-key($color, $tone) {
+      $tone: map-get($color, $tone);
+      @return $tone;
+    }
+
+    @warn "unknown tone `#{$tone}` in color";
+    @return null;
+  }
+
+  @warn "unknown color `#{$color}` in palette";
+  @return null;
+}
+
+$base-font-size: 16px;
+
+// Font Families
+$fontFamilies: (
+  primary: (
+    light: "Roboto, sans-serif",
+    regular: "Roboto, sans-serif",
+    medium: "Roboto, sans-serif",
+    bold: "Roboto, sans-serif"
+  ),
+  secondary: (
+    light: "'Beatrice-Light'",
+    regular: "'Beatrice-Light'",
+    medium: "'Beatrice-Light'",
+    bold: "'Beatrice-Light'"
+  ),
+  link: (
+    regular: "Roboto, sans-serif"
+  ),
+  icon: (
+    regular: "'Font Awesome 5 Pro'"
+  )
+);
+
+$link-color: color(primary, base);
+
+// Font Weights
+$fontWeights: (
+  ultraLight: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extraBold: 800,
+  black: 900
+);
+
+@mixin font($type, $weight: regular) {
+  // Output font family
+  @if map-has-key($fontFamilies, $type) {
+    $type: map-get($fontFamilies, $type);
+
+    @if map-has-key($type, $weight) {
+      font-family: #{map-get($type, $weight)};
+    }
+  }
+
+  // Output font weight
+  @if map-has-key($fontWeights, $weight) {
+    font-weight: map-get($fontWeights, $weight);
+  }
+}
+
+// $border-color: rgba(color(secondary, light), 0.16) !default;
+// @mixin border-bottom($border-bottom-color) {
+//   box-shadow: inset 0 -1px 0 0 $border-bottom-color;
+// }
+// @mixin border-bottom-none() {
+//   box-shadow: none;
+// }
+
+// Transition Values
+$transition-speed: 0.8s;
+$transition-style: ease;
+
+// Breakpoints
+$breakpoints: (
+  sm: (
+    min: 0,
+    max: 767px
+  ),
+  md: (
+    min: 768px,
+    max: 1024px
+  ),
+  lg: (
+    min: 1025px,
+    max: 1920px
+  ),
+  xl: (
+    min: 1921px
+  )
+);
+
+@mixin section {
+  position: relative;
+  z-index: 0;
+  @media (min-width: breakpoint(md, min)) {
+    min-height: 100vh;
+    max-height: 60%;
+  }
+}
+
+@mixin sectionTitle {
+  text-align: left;
+  letter-spacing: 0px;
+  color: #212121;
+  opacity: 1;
+  font-size: 40px;
+  @media (min-width: breakpoint(md, min)) {
+    font-size: 52px;
+  }
+}
+@mixin sectionContent {
+  @include font(secondary, light);
+  color: #000000;
+
+  font-size: 22px;
+  line-height: 35px;
+  @media (min-width: breakpoint(md, min)) {
+    font-size: 26px;
+    line-height: 40px;
+  }
+  sup {
+    font-size: 15px;
+  }
+}
+
+@mixin sectionContentMobile {
+  @media (min-width: breakpoint(md,min)) {
+    display: none;
+  }
+  @media (max-width: breakpoint(sm, max)) {
+    padding: 58px 40px 120px;
+    @include sectionContent;
+  }
+}
+
+@mixin sectionNavigation {
+  text-align: left;
+  @include font(secondary, light);
+  font-size: 125px;
+  letter-spacing: 0px;
+  line-height: 90px;
+  color: #212121;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+}
+
+@mixin model {
+  position: relative;
+  z-index: 2;
+  max-height: 100%;
+}
+
+@mixin boxDark {
+  background-color: color(primary, light);
+}
+@mixin boxMedium {
+  background-color: color(primary, light);
+  opacity: .28;
+}
+@mixin boxLight {  
+  background-color: color(primary, light);
+  opacity: .15;
+}
+
+@function breakpoint($breakpoint, $side) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint: map-get($breakpoints, $breakpoint);
+
+    @if map-has-key($breakpoint, $side) {
+      $size: map-get($breakpoint, $side);
+      @return $size;
+    }
+
+    @warn "unknown side `#{$side}` in breakpoint";
+    @return null;
+  }
+
+  @warn "unknown breakpoint `#{$breakpoint}` in breakpoints";
+  @return null;
+}
+
+// Row Min Heights
+$top-row-min-height-sm: 300px;
+$bottom-row-min-height-sm: 300px;
+$country-selector-min-height-sm: 500px;
+$footer-row-min-height-sm: 50px;
+
+$top-row-min-height-lg: 606px;
+$bottom-row-min-height-lg: 387px;
+$country-selector-min-height-lg: $top-row-min-height-lg;
+$footer-row-min-height-lg: 50px;
+
+$section-padding: 40px;

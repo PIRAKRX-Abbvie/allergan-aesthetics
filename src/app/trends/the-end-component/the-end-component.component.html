@@ -1,0 +1,32 @@
+<ng-template #contentCopy>
+  Consumers are starting aesthetic treatments earlier to delay signs of ageing,
+  while at the other extreme, science is bringing the possibility of
+  regenerating one’s cells closer. In the future, personalised treatment plans
+  will need to be devised based on a patient’s genetic, behavioural and
+  lifestyle factors.
+</ng-template>
+
+<div #sectionContainer id="the-end" class="section-container">
+  <div class="content">
+    <section-content
+      pageNum="10"
+      prevSectionId="beauty-metaverse"
+    >
+      <ng-container title>The End of <app-text-animate text="Aging"></app-text-animate></ng-container>
+      <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+    </section-content>
+  </div>
+
+
+  <div class="model-container">
+    <div class="box-light"></div>
+    <div class="box-dark"></div>
+    <div class="box-medium"></div>
+
+    <img class="model" src="/assets/trends/model10.png" />
+  </div>
+
+  <div class="content-mobile">
+    <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+  </div>
+</div>

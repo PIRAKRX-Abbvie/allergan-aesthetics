@@ -1,0 +1,30 @@
+@import 'styles/variables';
+
+.header {
+  // to be above the gradient
+  position: relative;
+  z-index: 2;
+
+  padding-top: 25px;
+  width: 100%;
+  padding-bottom: 41px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .logo {
+    width: 250px;
+
+    @media (max-width: breakpoint(sm, max)) {
+      display: none;
+    }
+  }
+  .logo-sm {
+    width: 95px;
+    
+    @media (min-width: breakpoint(md, min)) {
+      display: none;
+    }
+  }
+}

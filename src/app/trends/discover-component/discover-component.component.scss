@@ -1,0 +1,30 @@
+@import 'styles/variables';
+
+.section-container {
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  div {
+    font-size: 35px;
+    max-width: 50%;
+    text-align: center;
+    @include font(secondary, light);
+    padding-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: breakpoint(sm, max)) {
+      max-width: 50%;
+    }
+  }
+  app-icon {
+    fa-icon {
+      font-size: 25px;
+    }
+  }
+}

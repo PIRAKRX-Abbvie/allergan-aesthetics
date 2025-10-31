@@ -1,0 +1,56 @@
+@import "styles/variables";
+
+:host {
+  background: color(background, base);
+  background-image: url(~src/assets/home/image/Solo_Nico_012_web.png);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: right;
+  background-size: auto 100%;
+
+  min-height: $country-selector-min-height-sm;
+
+  @media screen and (min-width: breakpoint(lg, min)) {
+    min-height: $country-selector-min-height-lg;
+
+    background-image: url(~src/assets/home/image/Solo_Nico_012_web.png);
+  }
+
+  flex-direction: row;
+  justify-content: flex-end;
+
+  padding: 20px $section-padding $section-padding $section-padding;
+}
+
+.section {
+  flex: 1 1 100%;
+  max-width: 100%;
+  @media screen and (min-width: breakpoint(lg, min)) {
+    max-width: 1400px;
+  }
+}
+
+.logo {
+  padding-bottom: 62px;
+  text-align: center;
+
+  @media screen and (min-width: breakpoint(lg, min)) {
+    text-align: left;
+  }
+}
+
+.content {
+  max-width: 544px;
+
+  .subtitle {
+    @include font(secondary);
+
+    width: 175px;
+    padding-bottom: 35px;
+
+    @media screen and (min-width: breakpoint(lg, min)) {
+      font-size: 30px;
+      width: auto;
+    }
+  }
+}

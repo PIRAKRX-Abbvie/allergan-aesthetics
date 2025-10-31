@@ -1,0 +1,15 @@
+<div class="section-content">
+
+  <div class="nav-container">
+    <app-navigate-button  direction="up" [sectionId]="prevSectionId"></app-navigate-button>
+    <div class="page-num">{{pageNum}}</div>
+    <app-navigate-button  direction="down" [sectionId]="nextSectionId"></app-navigate-button>
+  </div>
+
+  <div class="content-container">
+    <h2 class="title"><ng-content select="[title]"></ng-content></h2>
+    <div class="content">
+      <ng-content select="[content]"></ng-content>
+    </div>
+  </div>
+</div>

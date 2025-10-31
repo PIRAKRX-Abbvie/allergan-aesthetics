@@ -1,0 +1,64 @@
+@import 'styles/variables';
+main { 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background: transparent linear-gradient(175deg, #FAF6F5 0%, #FEFEFD 36%, #FAF6F5 79%, #FFFFFF 100%) 0% 0% no-repeat padding-box;
+  position: relative;
+}
+
+.gradient {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 295px;
+  transform: matrix(-1, 0, 0, -1, 0, 0);
+  /* UI Properties */
+  background: transparent linear-gradient(0deg, #492728 0%, #00000000 100%) 0% 0% no-repeat padding-box;
+  opacity: 0.25;
+}
+
+.insights-cards {
+  display: flex;
+  gap: 20px;
+  @media (max-width: breakpoint(md, max)) {
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 90px;
+    padding-right: 90px;
+  }
+  @media (max-width: breakpoint(sm, max)) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .insights-card {
+    position: relative;
+    flex: 1 1;
+    background: #fff;
+    .insights-card-image {
+      > img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        @media (max-width: breakpoint(md, max)) {
+          height: 330px;
+        }
+      }
+    }
+    .insights-card-content {
+      padding: 15px 15px 60px 15px;
+    }
+    app-btn {
+      display: inline-flex;
+      position: absolute;
+      bottom: 20px;
+    }
+  }
+}
+.object-top {
+  object-position: top;
+}

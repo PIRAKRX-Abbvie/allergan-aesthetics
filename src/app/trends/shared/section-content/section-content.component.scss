@@ -1,0 +1,81 @@
+@import 'styles/variables';
+
+.section-content {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: breakpoint(sm, max)) {
+    width: 100%;
+  }
+
+  .nav-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 100px;
+    @media (min-width: breakpoint(md, min)) {
+      min-width: 120px;
+    }
+
+    .page-num {
+      @include font(secondary, light);
+      color: #000000;
+
+      font-size: 125px;
+      line-height: 110px;
+      @media (min-width: breakpoint(md, min)) {
+        font-size: 125px;
+        line-height: 110px;
+      }
+    }
+  }
+
+  .content-container {
+    flex: 1;
+
+    @media (min-width: breakpoint(md, min)) {
+      padding-left: 20px;
+    }
+
+    .title {
+      word-break: break-word;
+      color: #212121;
+
+      padding-top: 5px;
+      font-size: 40px;
+      @media (min-width: breakpoint(md, min)) {
+        padding-top: 48px;
+        font-size: 55px;
+      }
+    }
+
+    .content {
+      @include sectionContent;
+      transform: translateY(30px);
+      opacity: 0;
+
+      @media (max-width: breakpoint(sm, max)) {
+        display: none;
+      }
+    }
+  }
+}
+
+:host-context(.shown) {
+  .section-content {
+    .content-container {
+      .content {
+        transition-delay: 250ms;
+        transition: transform 1s, opacity 1s;
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import 'styles/variables';
+
+:host {
+  background-image: url(~src/assets/img/AGN_contact_sml.jpg);
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: top;
+  background-size: 100%;
+
+  @media screen and (min-width: breakpoint(md, min)) and (max-width: breakpoint(md, max)) {
+    background-image: url(~src/assets/img/AGN_contact_med.png);
+  }
+
+  @media screen and (min-width: breakpoint(lg, min)) {
+    background-image: url(~src/assets/img/AGN_contact_lrg.jpg);
+    // background-size: auto 100%;
+  }
+}
+
+app-btn {
+  margin-top: 20px;
+}

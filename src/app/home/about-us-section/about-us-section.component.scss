@@ -1,0 +1,23 @@
+@import "styles/variables";
+
+:host {
+  background: color(background, base);
+  background-image: url(~src/assets/home/image/Solo_Garrett_034_web.png);
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  background-position-x: left;
+  background-size: contain;
+
+  min-height: $bottom-row-min-height-sm;
+
+  @media screen and (min-width: breakpoint(lg, min)) {
+    background-image: url(~src/assets/home/image/Solo_Garrett_034_web.png);
+    background-position-x: left;
+    background-position-y: top;
+
+    min-height: $bottom-row-min-height-lg;
+    max-height: $bottom-row-min-height-lg;
+    background-size: auto 100%;
+  }
+  width: 100%;
+}

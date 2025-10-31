@@ -1,0 +1,26 @@
+<ng-template #contentCopy>
+  Procedures that are temporary in nature could be less daunting and have a
+  potentially wider appeal for the younger generation. People no longer want
+  beauty to be so rigidly defined – instead, creativity is coming to the fore.
+</ng-template>
+
+<div #sectionContainer class="section-container" id="ephemeral-expression">
+  <div class="content">
+    <section-content pageNum="4" prevSectionId="gender-inclusive"
+      nextSectionId="elevated-experiences">
+      <ng-container title>Ephemeral <app-text-animate text="Expression"></app-text-animate></ng-container>
+      <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+    </section-content>
+  </div>
+
+  <div class="model-container">
+    <!-- <div class="box-light"></div> -->
+    <div class="box-dark"></div>
+    <img class="model" src="/assets/trends/model4.png" />
+  </div>
+
+
+  <div class="content-mobile">
+    <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+  </div>
+</div>

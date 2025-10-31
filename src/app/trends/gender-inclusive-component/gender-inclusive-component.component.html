@@ -1,0 +1,26 @@
+<ng-template #contentCopy>
+  Attitudes to gender binaries are moving fast, and beauty is ditching the
+  gender divide to speak with one voice to all. Taking a degendered approach to
+  aesthetic treatments means celebrating all possible permutations and
+  expressions of gender.
+</ng-template>
+
+<div #sectionContainer id="gender-inclusive" class="section-container">
+  <div class="content">
+    <section-content pageNum="3" prevSectionId="new-masculine"
+      nextSectionId="ephemeral-expression">
+      <ng-container title>Gender-<app-text-animate text="Inclusive"></app-text-animate> Beauty</ng-container>
+      <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+    </section-content>
+  </div>
+
+  <div class="model-container">
+    <div class="box-light"></div>
+    <div class="box-dark"></div>
+    <img class="model" src="/assets/trends/model2.png" />
+  </div>
+
+  <div class="content-mobile">
+    <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+  </div>
+</div>

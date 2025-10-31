@@ -1,0 +1,16 @@
+<div class="dropdown-container" ngbDropdown>
+  <button class="selected-item" id="dropdownControl" ngbDropdownToggle>
+    {{ selectedItem ? selectedItem.label : placeholder }}
+    <app-icon [type]="iconType"></app-icon>
+  </button>
+  <div class="dropdown-items" ngbDropdownMenu aria-labelledby="dropdownControl">
+    <button
+      *ngFor="let item of items; trackBy: trackByFn"
+      ngbDropdownItem
+      (click)="selectItem(item)"
+      (keydown.enter)="selectItem(item)"
+    >
+      {{ item.label }}
+    </button>
+  </div>
+</div>

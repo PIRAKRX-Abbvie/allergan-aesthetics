@@ -1,0 +1,11 @@
+{
+  "stage": "local",
+  "apiBase": "https://dev-dxp-appsapi.allerganaesthetics.com/api",
+  "googleAnalytics": {
+    "id": "GTM-WKJZLLL"
+  },
+  "recaptchaKey": "GLOBALLANDING",
+  "siteOrigin": "GLOBALLANDING",
+  "siteLanguage": "en-us",
+  "careersUrl": "https://careers.abbvie.com/abbvie/jobs?page=1"
+}

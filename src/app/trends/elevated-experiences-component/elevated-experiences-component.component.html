@@ -1,0 +1,26 @@
+<ng-template #contentCopy>
+  Treatments in a tiny back room will no longer cut the mustard. People now
+  expect a luxurious experience that complements a more holistic approach to
+  treatments.
+</ng-template>
+
+<div #sectionContainer id="elevated-experiences" class="section-container">
+  <div class="content">
+    <section-content pageNum="5" prevSectionId="ephemeral-expression"
+      nextSectionId="new-body-frontiers">
+      <ng-container title>Elevated <app-text-animate text="Experiences"></app-text-animate></ng-container>
+      <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+    </section-content>
+  </div>
+
+  <div class="model-container">
+    <div class="box-light"></div>
+    <div class="box-dark"></div>
+    <img class="model" src="/assets/trends/model5.png" />
+  </div>
+
+
+  <div class="content-mobile">
+    <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+  </div>
+</div>

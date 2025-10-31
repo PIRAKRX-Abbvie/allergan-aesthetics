@@ -1,0 +1,131 @@
+@import 'styles/variables';
+
+.section-container {
+  @include section;
+
+  .content {
+    @media (min-width: breakpoint(xl, min)) {
+      position: absolute;
+      top: 14%;
+      left: 23%;
+      max-width: 39%;
+    }
+    @media (min-width: breakpoint(lg, min)) and (max-width: breakpoint(lg, max)) {
+      position: absolute;
+      top: 14%;
+      left: 3%;
+      max-width: 59%;
+    }
+    @media (min-width: breakpoint(md, min)) and (max-width: breakpoint(md, max)) {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      max-width: 60%;
+    }
+
+    @media (max-width: breakpoint(sm, max)) {
+      padding-top: 25px;
+    }
+  }
+  .content-mobile {
+    @include sectionContentMobile;
+  }
+
+  .model-container {
+    * {
+      z-index: 1;
+    }
+
+    @media (max-width: breakpoint(sm, max)) {
+      position: relative;
+    }
+    .model {
+      @include model;
+
+      @media (min-width: breakpoint(lg, min)) {
+        position: absolute;
+        bottom: 14%;
+        left: 56%;
+        width: 47%;
+        max-width: 700px;
+        max-height: 80%;
+      }
+      @media (min-width: breakpoint(md, min)) and (max-width: breakpoint(md, max)) {
+        position: absolute;
+        width: 66%;
+        bottom: 0;
+        right: -15%;
+      }
+      @media (max-width: breakpoint(sm, max)) {
+        width: 150%;
+        position: relative;
+        left: -15%;
+      }
+    }
+    .box-dark {
+      @include boxDark;
+      
+      @media (min-width: breakpoint(lg, min)) {
+        position: absolute;
+        bottom: 0%;
+        right: 0;
+        width: 25%;
+        height: 90%;
+      }
+      @media (min-width: breakpoint(md, min)) and (max-width: breakpoint(md, max)) {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 25%;
+        height: 75%;
+      }
+      @media (max-width: breakpoint(sm, max)) {
+        position: absolute;
+        bottom: 0%;
+        right: 0;
+        width: 45%;
+        z-index: -1;
+        height: 80%;
+      }
+    }
+
+    .box-light {
+      @include boxLight;
+
+      @media (min-width: breakpoint(lg, min)) {
+        position: absolute;
+        top: 13%;
+        left: 0px;
+        width: 13%;
+        height: 45%;
+        transform: translateY(95%);
+      }
+      @media (min-width: breakpoint(md, min)) and (max-width: breakpoint(md, max)) {
+        position: absolute;
+        top: 13%;
+        left: 0px;
+        width: 13%;
+        height: 45%;
+        transform: translateY(95%);
+      }
+      @media (max-width: breakpoint(sm, max)) {
+        position: absolute;
+        bottom: 0;
+        left: 0px;
+        width: 15%;
+        height: 33%;
+        z-index: -1;
+        transform: translateY(-100%);
+      }
+    }
+  }
+  &.shown {
+    .model-container {
+      .box-light {
+        transition-delay: 250ms;
+        transition: transform 7s;
+        transform: translateY(0);
+      }
+    }
+  }
+}

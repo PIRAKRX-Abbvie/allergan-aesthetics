@@ -1,0 +1,15 @@
+<app-accordion title="Careers" i18n-title [maxWidth]="maxWidth">
+  At Allergan Aesthetics we believe in the remarkable impact
+  confidence can have on the lives, businesses, and careers of those we serve
+  through our history of a company built on patient-care.
+  <div>
+    <app-btn
+      [href]="careersUrl"
+      [style]="buttonStyles.secondary"
+      [icon]="iconTypes.arrowRight"
+      (click)="trackEvent($event)"
+      i18n
+      >See Open Roles</app-btn
+    >
+  </div>
+</app-accordion>

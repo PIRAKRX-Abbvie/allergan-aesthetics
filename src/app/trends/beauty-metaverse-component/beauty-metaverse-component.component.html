@@ -1,0 +1,30 @@
+<ng-template #contentCopy>
+  The metaverse is touted to be the next iteration of the internet, which is set
+  to have a profound impact on everyone’s lives. Future generations will be
+  virtual natives, seamlessly navigating the physical and digital realms, while
+  practitioners will use virtual ‘meta-clinics’ as a new and convenient way to
+  interact with clients for certain services.
+</ng-template>
+
+<div #sectionContainer id="beauty-metaverse" class="section-container">
+  <div class="content">
+    <section-content
+      pageNum="9"
+      prevSectionId="digital-lens"
+      nextSectionId="the-end"
+    >
+      <ng-container title>Beauty & the <app-text-animate text="Metaverse"></app-text-animate></ng-container>
+      <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+    </section-content>
+  </div>
+
+  <div class="model-container">
+    <div class="box-light"></div>
+    <div class="box-dark"></div>
+    <img class="model" src="/assets/trends/model9.png" />
+  </div>
+
+  <div class="content-mobile">
+    <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+  </div>
+</div>

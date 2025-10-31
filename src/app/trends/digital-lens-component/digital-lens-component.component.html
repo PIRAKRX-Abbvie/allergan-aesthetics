@@ -1,0 +1,26 @@
+<ng-template #contentCopy>
+  The COVID-19 pandemic has brought a ‘Zoom Boom’, with people scrutinising
+  their own faces on screen more than ever before. Coupled with the already
+  pervasive manipulation of photos on social media, how digital communication
+  changes people’s perception of themselves, and how this relates to aesthetics,
+  is a hot-button issue.
+</ng-template>
+
+<div #sectionContainer id="digital-lens" class="section-container">
+  <div class="content">
+    <section-content pageNum="8" prevSectionId="aesthetics" nextSectionId="beauty-metaverse">
+      <ng-container title>The <app-text-animate text="Digital"></app-text-animate> Lens</ng-container>
+      <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+    </section-content>
+  </div>
+
+  <div class="model-container">
+    <div class="box-light"></div>
+    <div class="box-dark"></div>
+    <img class="model" src="/assets/trends/model8.png" />
+  </div>
+
+  <div class="content-mobile">
+    <ng-container content *ngTemplateOutlet="contentCopy"></ng-container>
+  </div>
+</div>

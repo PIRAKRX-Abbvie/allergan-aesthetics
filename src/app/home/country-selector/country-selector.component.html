@@ -1,0 +1,11 @@
+<ng-container *ngIf="countryItems">
+  <app-dropdown
+    [items]="countryItems"
+    placeholder="Market"
+    i18n-placeholder
+    (onChange)="selectCountry($event)"
+  ></app-dropdown>
+  <app-btn [style]="buttonStyles.primarySolid" (onClick)="goToCountrySite()"
+    >Go</app-btn
+  >
+</ng-container>

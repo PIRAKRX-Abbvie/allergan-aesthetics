@@ -1,0 +1,88 @@
+@import 'styles/variables';
+
+:host {
+  display: inline-flex;
+}
+
+// Base
+.btn {
+  display: flex;
+  align-items: center;
+
+  background: none;
+  border: 1px solid transparent;
+  line-height: 1.75em;
+
+  box-shadow: none;
+
+  .button-text {
+    display: flex;
+    align-items: center;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 2px solid color(primary);
+  }
+
+  // Primary Btn
+  &.btn-primary {
+    color: color(primary);
+    border-color: color(primary);
+
+    &:hover,
+    &:focus {
+      color: color(foreground, lightest);
+      background-color: color(primary);
+      border-color: color(primary);
+    }
+  }
+
+  &.btn-primarySolid {
+    color: color(foreground, lightest);
+    background: color(primary);
+    border-color: color(primary);
+
+    &:hover,
+    &:focus {
+      color: color(foreground, lightest);
+      background: color(primary, light);
+      border-color: color(primary, light);
+    }
+  }
+
+  // Secondary Btn
+  &.btn-secondary {
+    color: color(foreground, lightest);
+    border-color: color(foreground, lightest);
+
+    &:hover,
+    &:focus {
+      background-color: color(foreground, lightest);
+      color: color(primary);
+    }
+  }
+
+  // Link Btn
+  &.btn-link {
+    // color: $font-color_light;
+
+    // &:hover {
+    //   color: $font-color_light;
+    // }
+  }
+
+  // Disabled Btn
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .button-icon__right {
+    padding-left: 40px;
+  }
+}

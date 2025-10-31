@@ -1,0 +1,41 @@
+
+<main>
+  <div class="gradient"></div>
+  <app-trends-header-component></app-trends-header-component>
+  <div class="container">
+    <h1>Global Insights</h1>
+    <div class="insights-cards">
+      <div class="insights-card">
+        <div class="insights-card-image">
+          <img src="/assets/insights/global-insights/images/Solo_Angel_71_wide_bg_web.png" alt=""/>
+        </div>
+        <div class="insights-card-content">
+          <h4>Global Trends Report</h4>
+          <p>Get a unique view of what tomorrow holds for aesthetics to enable evolution for the future.</p>
+          <app-btn href="global-trends-report" [style]="buttonStyles.primarySolid" [icon]="iconTypes.arrowRight">Read More</app-btn>
+        </div>
+      </div>
+      <div class="insights-card">
+        <div class="insights-card-image">
+          <img class="object-top" src="/assets/insights/aesthetic-individuality-report/images/2201470601_web.png" alt=""/>
+        </div>
+        <div class="insights-card-content">
+          <h4>Decoding the Future of Aesthetic Individuality</h4>
+          <p>Explore the concept of Individuality across beauty, aesthetics, and more.</p>
+          <app-btn href="aesthetic-individuality" [style]="buttonStyles.primarySolid" [icon]="iconTypes.arrowRight">Read More</app-btn>
+        </div>
+      </div>
+      <div class="insights-card">
+        <div class="insights-card-image">
+          <img src="/assets/insights/aesthetic-ethics-report/image/ethics.png" alt=""/>
+        </div>
+        <div class="insights-card-content">
+          <h4>Aesthetic-Ethics</h4>
+          <p>Learn more on how we are prioritizing patient safety and high ethical standards.</p>
+          <app-btn href="aesthetic-ethics" [style]="buttonStyles.primarySolid" [icon]="iconTypes.arrowRight">Read More</app-btn>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</main>

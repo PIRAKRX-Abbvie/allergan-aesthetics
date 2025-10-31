@@ -1,0 +1,28 @@
+<div
+  class="accordion-container"
+  (click)="toggle()"
+  (mouseenter)="open()"
+  (focusin)="open()"
+  (mouseleave)="close()"
+  (focusout)="close()"
+  [ngClass]="{
+    open: isOpen,
+    'right-aligned': rightAligned
+  }"
+  tabindex="0"
+  role="region"
+  [attr.aria-labelledby]="labelId"
+  [attr.aria-expanded]="isOpen"
+>
+  <div class="section" [style.max-width.px]="maxWidth">
+    <h2 [id]="labelId" i18n>
+      {{ title }}
+      <span class="arrow"
+        ><app-icon [type]="iconTypes.chevronRight"></app-icon
+      ></span>
+    </h2>
+    <div class="content" [@smoothCollapse]="isOpen ? 'visible' : 'hidden'">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

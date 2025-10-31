@@ -1,0 +1,370 @@
+<ng-container *ngIf="recaptchaSiteKey; else loading">
+  <ng-container *ngIf="errored">
+    <div class="error-msg" i18n>
+      An error occurred submitting your form. Please try again later.
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!errored">
+    <form
+      *ngIf="!submitted"
+      [formGroup]="contactUsForm"
+      aria-labelledby="contact-us-form-title"
+    >
+      <div class="row">
+        <div
+          class="col form-group"
+          [ngClass]="{
+            'has-error': hasErrors(contactUsForm.controls.recipient)
+          }"
+        >
+          <label for="recipientInput" class="required" i18n> Recipient </label>
+          <select
+            class="form-control"
+            id="recipientInput"
+            formControlName="recipient"
+            [attr.aria-invalid]="hasErrors(contactUsForm.controls.recipient)"
+            aria-errormessage="recipient-errors"
+          >
+            <option
+              *ngFor="let option of recipientOptions; trackBy: trackByFn"
+              [value]="option.value"
+            >
+              {{ option.label }}
+            </option>
+          </select>
+
+          <small
+            *ngIf="hasErrors(contactUsForm.controls.recipient)"
+            class="errors"
+            id="recipient-errors"
+          >
+            <div
+              *ngIf="isError(contactUsForm.controls.recipient, 'required')"
+              i18n
+            >
+              Recipient is required.
+            </div>
+          </small>
+        </div>
+      </div>
+
+      <div *ngIf="showCategory()" class="row">
+        <div class="col form-group">
+          <legend class="col-form-label col-sm-2 pt-0" i18n>Category</legend>
+
+          <label class="radio-label">
+            <input type="radio" value="" formControlName="category" />
+            <span i18n>None</span>
+          </label>
+          <label class="radio-label">
+            <input
+              type="radio"
+              [value]="aestheticProductValue"
+              formControlName="category"
+            />
+            <span i18n>Aesthetic Product</span>
+          </label>
+          <label class="radio-label">
+            <input
+              type="radio"
+              [value]="regenerativeProductValue"
+              formControlName="category"
+            />
+            <span i18n>Regenerative Product</span>
+          </label>
+        </div>
+      </div>
+
+      <div *ngIf="showCategoryDropdown(aestheticProductValue)" class="row">
+        <div
+          class="col form-group"
+          [ngClass]="{
+            'has-error': hasErrors(contactUsForm.controls.aestheticProduct)
+          }"
+        >
+          <label for="aestheticProductInput" class="required" i18n>
+            Aesthetic Product
+          </label>
+          <select
+            class="form-control"
+            id="recipientInput"
+            formControlName="aestheticProduct"
+            [attr.aria-invalid]="
+              hasErrors(contactUsForm.controls.aestheticProduct)
+            "
+            aria-errormessage="aestheticProduct-errors"
+          >
+            <option
+              *ngFor="let option of aestheticProductOptions; trackBy: trackByFn"
+              [value]="option.value"
+            >
+              {{ option.label }}
+            </option>
+          </select>
+
+          <small
+            *ngIf="hasErrors(contactUsForm.controls.aestheticProduct)"
+            class="errors"
+            id="aestheticProduct-errors"
+          >
+            <div
+              *ngIf="
+                isError(contactUsForm.controls.aestheticProduct, 'required')
+              "
+              i18n
+            >
+              Aesthetic product is required.
+            </div>
+          </small>
+        </div>
+      </div>
+
+      <div *ngIf="showCategoryDropdown(regenerativeProductValue)" class="row">
+        <div
+          class="col form-group"
+          [ngClass]="{
+            'has-error': hasErrors(contactUsForm.controls.regenerativeProduct)
+          }"
+        >
+          <label for="regenerativeProductInput" class="required" i18n>
+            Regenerative Medicine Product
+          </label>
+          <select
+            class="form-control"
+            id="recipientInput"
+            formControlName="regenerativeProduct"
+            [attr.aria-invalid]="
+              hasErrors(contactUsForm.controls.regenerativeProduct)
+            "
+            aria-errormessage="regenerativeProduct-errors"
+          >
+            <option
+              *ngFor="
+                let option of regenerativeProductOptions;
+                trackBy: trackByFn
+              "
+              [value]="option.value"
+            >
+              {{ option.label }}
+            </option>
+          </select>
+
+          <small
+            *ngIf="hasErrors(contactUsForm.controls.regenerativeProduct)"
+            class="errors"
+            id="regenerativeProduct-errors"
+          >
+            <div
+              *ngIf="
+                isError(contactUsForm.controls.regenerativeProduct, 'required')
+              "
+              i18n
+            >
+              Regenerative medicine product is required.
+            </div>
+          </small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div
+          class="col form-group"
+          [ngClass]="{
+            'has-error': hasErrors(contactUsForm.controls.message)
+          }"
+        >
+          <label for="messageInput" class="required" i18n> Message </label>
+          <textarea
+            class="form-control"
+            id="messageInput"
+            formControlName="message"
+            [attr.aria-invalid]="hasErrors(contactUsForm.controls.message)"
+            aria-errormessage="message-errors"
+          ></textarea>
+
+          <small
+            *ngIf="hasErrors(contactUsForm.controls.message)"
+            class="errors"
+            id="message-errors"
+          >
+            <div
+              *ngIf="isError(contactUsForm.controls.message, 'required')"
+              i18n
+            >
+              Message is required.
+            </div>
+          </small>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="col-12 col-lg-6 form-group"
+          [ngClass]="{
+            'has-error': hasErrors(contactUsForm.controls.fullName)
+          }"
+        >
+          <label for="fullNameInput" class="required" i18n> Full Name </label>
+          <input
+            type="text"
+            class="form-control"
+            id="fullNameInput"
+            formControlName="fullName"
+            [attr.aria-invalid]="hasErrors(contactUsForm.controls.fullName)"
+            aria-errormessage="fullName-errors"
+          />
+
+          <small
+            *ngIf="hasErrors(contactUsForm.controls.fullName)"
+            class="errors"
+            id="fullName-errors"
+          >
+            <div
+              *ngIf="isError(contactUsForm.controls.fullName, 'required')"
+              i18n
+            >
+              Full name is required.
+            </div>
+          </small>
+        </div>
+        <div
+          class="col-12 col-lg-6 form-group"
+          [ngClass]="{
+            'has-error': hasErrors(contactUsForm.controls.email)
+          }"
+        >
+          <label for="emailInput" class="required" i18n> Email </label>
+          <input
+            type="text"
+            class="form-control"
+            id="emailInput"
+            formControlName="email"
+            [attr.aria-invalid]="hasErrors(contactUsForm.controls.email)"
+            aria-errormessage="email-errors"
+          />
+
+          <small
+            *ngIf="hasErrors(contactUsForm.controls.email)"
+            class="errors"
+            id="email-errors"
+          >
+            <div *ngIf="isError(contactUsForm.controls.email, 'required')" i18n>
+              Email is required.
+            </div>
+            <div *ngIf="isError(contactUsForm.controls.email, 'email')" i18n>
+              Please enter a valid email.
+            </div>
+          </small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div
+          class="col-12 col-lg-6 form-group"
+          [ngClass]="{
+            'has-error': hasErrors(contactUsForm.controls.phoneNumber)
+          }"
+        >
+          <label for="phoneNumberInput" class="required" i18n>
+            Phone Number
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="phoneNumberInput"
+            formControlName="phoneNumber"
+            [attr.aria-invalid]="hasErrors(contactUsForm.controls.phoneNumber)"
+            aria-errormessage="phoneNumber-errors"
+          />
+
+          <small
+            *ngIf="hasErrors(contactUsForm.controls.phoneNumber)"
+            class="errors"
+            id="phoneNumber-errors"
+          >
+            <div
+              *ngIf="isError(contactUsForm.controls.phoneNumber, 'required')"
+              i18n
+            >
+              Phone Number is required.
+            </div>
+          </small>
+        </div>
+        <div
+          class="col-12 col-lg-6 form-group"
+          [ngClass]="{
+            'has-error': hasErrors(contactUsForm.controls.preferredCallTime)
+          }"
+        >
+          <label for="preferredCallTimeInput" i18n>Preferred Call Time </label>
+          <select
+            class="form-control"
+            id="preferredCallTimeInput"
+            formControlName="preferredCallTime"
+            [attr.aria-invalid]="
+              hasErrors(contactUsForm.controls.preferredCallTime)
+            "
+            aria-errormessage="preferredCallTime-errors"
+          >
+            <option
+              *ngFor="
+                let option of preferredCallTimeOptions;
+                trackBy: trackByFn
+              "
+              [value]="option.value"
+            >
+              {{ option.label }}
+            </option>
+          </select>
+
+          <small
+            *ngIf="hasErrors(contactUsForm.controls.preferredCallTime)"
+            class="errors"
+            id="preferredCallTime-errors"
+          >
+            <div
+              *ngIf="
+                isError(contactUsForm.controls.preferredCallTime, 'required')
+              "
+              i18n
+            >
+              Preferred call time is required.
+            </div>
+          </small>
+        </div>
+      </div>
+
+      <re-captcha
+        #captchaRef="reCaptcha"
+        [siteKey]="recaptchaSiteKey"
+        size="invisible"
+        (resolved)="$event && onSubmit($event)"
+      ></re-captcha>
+
+      <div class="row btn-row">
+        <div class="col form-group">
+          <app-btn
+            [style]="buttonStyles.primarySolid"
+            type="button"
+            (onClick)="captchaRef.execute()"
+            i18n
+            [disabled]="!contactUsForm.valid"
+            >Send Your Message</app-btn
+          >
+        </div>
+      </div>
+    </form>
+
+    <ng-container *ngIf="submitted">
+      <div class="thank-you-msg" i18n>
+        Your request has been sent. We will contact you soon
+      </div>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #loading>
+  <div class="loading">
+    <app-icon [type]="iconTypes.loading" [spin]="true"></app-icon>
+  </div>
+</ng-template>

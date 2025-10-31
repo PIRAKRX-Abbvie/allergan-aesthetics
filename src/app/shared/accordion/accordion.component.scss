@@ -1,0 +1,78 @@
+@import 'styles/variables';
+
+:host {
+  width: 100%;
+}
+
+.arrow {
+  font-size: 16px;
+
+  @media screen and (min-width: breakpoint(lg, min)) {
+    display: none;
+  }
+}
+
+.accordion-container {
+  height: 100%;
+  width: 100%;
+
+  padding: $section-padding;
+
+  color: color(foreground, lightest);
+
+  display: flex;
+  flex-direction: row;
+
+  transition: color 250ms linear;
+
+  & > * {
+    z-index: 2;
+  }
+
+  // after is for inactive state background gradient
+  &::after {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, color(primary, base));
+    opacity: 0.9;
+  }
+
+  // before is for active state background
+  &::before {
+    z-index: 2;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.77;
+    transition: background-color 250ms linear;
+  }
+
+  &.open {
+    position: relative;
+
+    color: color(foreground, lightest);
+    &::before {
+      background-color: color(primary, base);
+    }
+  }
+
+  &.right-aligned {
+    justify-content: flex-end;
+  }
+}
+
+.section {
+  flex: 1 1 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}

@@ -1,0 +1,23 @@
+@import 'styles/variables';
+
+:host {
+  background-image: url(~src/assets/img/AGN_careers_sml.jpg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: center;
+  background-size: cover;
+
+  @media screen and (min-width: breakpoint(md, min)) and (max-width: breakpoint(md, max)) {
+    background-image: url(~src/assets/img/AGN_careers_med.png);
+  }
+
+  @media screen and (min-width: breakpoint(lg, min)) {
+    background-image: url(~src/assets/img/AGN_careers_lrg.jpg);
+  }
+
+  flex-direction: row;
+}
+
+app-btn {
+  margin-top: 20px;
+}

@@ -1,0 +1,55 @@
+@import 'styles/variables';
+
+.container {
+  position: relative;
+  padding: 0;
+}
+
+.overlay {
+  direction: rtl;
+  white-space: nowrap;
+  position: absolute;
+  top: 7px;
+  right: 0;
+  overflow: hidden;
+  padding: 0;
+
+  background-color: color(primary, base);
+  color: white;
+
+  text-align: right;
+
+  opacity: 0;
+  width: 0;
+  
+  word-break: keep-all;
+}
+
+:host-context(.shown) {
+  .overlay {
+    display: initial;
+
+    transition-delay: 1s;
+    transition-property: opacity;
+    transition-duration: 0ms;
+    opacity: 1;
+    
+    animation-delay: 1s;
+    animation-name: animation-name;
+    animation-duration: .3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes animation-name {
+  0% {
+    width: 0%;
+  }  
+  85% {
+    width: 102%;
+  }
+  100% {
+    width: 100%;
+  }
+}

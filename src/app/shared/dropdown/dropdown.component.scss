@@ -1,0 +1,82 @@
+@import "styles/variables";
+
+:host {
+  display: flex;
+  position: relative;
+  width: 282px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-container {
+  width: 100%;
+  background: color(background, light);
+}
+
+.selected-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: transparent;
+  padding: 0.25rem 1rem;
+  border: 1px solid color(primary);
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+
+  @media screen and (min-width: breakpoint(lg, min)) {
+    font-size: 18px;
+  }
+}
+
+.dropdown-items {
+  margin-top: 0;
+  right: 0;
+
+  background: color(background, light);
+  max-height: 600px;
+  overflow-y: scroll;
+
+  button {
+    &:hover {
+      background-color: color(background, base);
+    }
+  }
+}
+
+.item-selector {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  border: 1px solid color(primary);
+  border-top: 0;
+  background: color(background, light);
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      cursor: pointer;
+      padding: 0.25rem 1rem;
+    }
+    li:hover {
+      background-color: color(background, base);
+    }
+  }
+}
+
+ng-scrollbar {
+  height: 250px;
+
+  --scrollbar-size: 8px;
+  --scrollbar-thumb-color: #{color(primary, light)};
+  --scrollbar-thumb-hover-color: #{color(primary, base)};
+  --scrollbar-border-radius: 4px;
+}

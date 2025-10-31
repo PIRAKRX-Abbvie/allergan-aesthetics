@@ -1,0 +1,72 @@
+@import 'styles/variables';
+
+html,
+body {
+  font-size: $base-font-size;
+  @include font(primary);
+  color: color(foreground, base);
+  background: color(background, light);
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include font(secondary, light);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.h1,
+h1 {
+  font-size: 30px;
+
+  @media screen and (min-width: breakpoint(lg, min)) {
+    font-size: 50px;
+  }
+}
+
+.h2,
+h2 {
+  font-size: 30px;
+
+  @media screen and (min-width: breakpoint(lg, min)) {
+    font-size: 40px;
+  }
+}
+
+.h3,
+h3 {
+  font-size: 30px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: color(foreground, base);
+}
+
+.link {
+  cursor: pointer;
+}
+
+* {
+  outline-color: $link-color;
+}
+
+.form-control {
+  box-shadow: 0px 8px 16px #20324319;
+  border: 1px solid color(primary, base);
+}

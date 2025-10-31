@@ -1,0 +1,22 @@
+@import "styles/variables";
+
+:host {
+  background: color(primary, light);
+  background-image: url(~src/assets/home/image/Solo_Angel_71_wide_web.png);
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  background-position-x: center;
+  background-size: contain;
+
+  @media screen and (min-width: breakpoint(md, min)) and (max-width: breakpoint(md, max)) {
+    background-image: url(~src/assets/home/image/Solo_Angel_71_wide_web.png);
+  }
+
+  @media screen and (min-width: breakpoint(lg, min)) {
+    background-image: url(~src/assets/home/image/Solo_Angel_71_web-desktop.png);
+    background-size: cover;
+    background-position-y: top;
+  }
+
+  flex-direction: row;
+}

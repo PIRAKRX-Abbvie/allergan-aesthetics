@@ -1,0 +1,19 @@
+@import "styles/variables";
+
+:host {
+    > div {
+        background-color: color(foreground, light);
+        padding: 30px 50px;
+        overflow-wrap: break-word;
+        .title { 
+            font-weight: bold;
+            color: color(primary, base);
+        }
+        p { 
+            color: color(primary, base);
+            font-weight: 200;
+            max-width: 100%;
+            
+        }
+    }
+}
